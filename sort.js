@@ -57,7 +57,6 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
-/************************************************* */
 
 function ran(length) {
     return Math.floor(Math.random() * length);
@@ -105,6 +104,8 @@ for (let i=0; i<20; i++)
 
 bubbleSort(arr)
 
-document.querySelector("#display").innerHTML = arr.map(e => {
-    return cardHTML(e.value, e.suit);
-}).join("");
+// document.querySelector("#display").innerHTML = arr.map(e => {
+//     return cardHTML(e.value, e.suit);
+// }).join("");
+
+document.querySelector("#display").innerHTML = "helloooo";
