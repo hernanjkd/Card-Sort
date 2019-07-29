@@ -1,6 +1,6 @@
 
 
-let div = document.querySelector(".display");
+// let div = document.querySelector(".display");
 
 
 let cards = [
@@ -14,9 +14,9 @@ let max = cards.length;
 
 let deal = Deal(5);
 
-div.innerHTML = deal + '<br>';
+// div.innerHTML = deal + '<br>';
 
-div.innerHTML += BubbleSort(deal)+'<br>';
+// div.innerHTML += BubbleSort(deal)+'<br>';
 
 
 // Takes in the number of cards, returns an array
