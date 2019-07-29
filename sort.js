@@ -1,59 +1,6 @@
 
 
-// let div = document.querySelector(".display");
 
-
-let cards = [
-     1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13,
-    21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
-    41, 42, 43, 44, 45, 46, 47, 48, 49, 40, 51, 52, 53,
-    61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73
-];
-
-let max = cards.length;
-
-let deal = Deal(5);
-
-// div.innerHTML = deal + '<br>';
-
-// div.innerHTML += BubbleSort(deal)+'<br>';
-
-
-// Takes in the number of cards, returns an array
-function Deal(q) {
-
-    let arr = [];
-
-    // Quantity of cards can't exceed the total number of cards
-    if (q > max) 
-        q = max;
-
-    // Quantity will have a minimum of 2 cards
-    if (q < 2)
-        q = 2;
-
-    // Until n equals 0, loop n times
-    while (q) {
-        
-        // Pick random card
-        let temp = pickRandom(max);
-        max--;
-
-        // Put card in deal deck
-        arr.push( cards[temp] );
-
-        // Remove card from deck
-        cards.splice(temp, 1);
-
-        q--;
-    }
-    return arr;
-}
-
-
-function pickRandom(n) {
-    return Math.floor( Math.random() * n);
-}
 
 
 
