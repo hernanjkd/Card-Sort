@@ -1,6 +1,6 @@
 
 
-
+document.querySelector(".display").innerHTML = "helloooo";
 
 alert();
 
@@ -108,4 +108,3 @@ alert();
 //     return cardHTML(e.value, e.suit);
 // }).join("");
 
-document.querySelector(".display").innerHTML = "helloooo";
