@@ -108,4 +108,4 @@
 //     return cardHTML(e.value, e.suit);
 // }).join("");
 
-document.querySelector("#display").innerHTML = "helloooo";
+document.querySelector(".display").innerHTML = "helloooo";
