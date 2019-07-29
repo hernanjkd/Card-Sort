@@ -54,13 +54,19 @@ function swap(arr, i, j) {
 }
 
 
+const setSuit = num => num === 1 ? "♠" : num === 2 ? "♥" : num === 3 ? "♣" : "♦";
+const setValue = num => num === 1 ? "A" : num === 11 ? "J" 
+                : num === 12 ? "Q" : num === 13 ? "K" : num;
+
 function ran(length) {
     return Math.floor(Math.random() * length);
 }
 
 const cardHTML = (value, suit) => {
+    let color = suit === 1 || suit === 3 ? "text-danger" : "";
+
     return `
-    <span class="border p-2">${value} ${suit}</span>
+    <span class="border p-2 ${color}">${setValue(value)} ${setSuit(suit)}</span>
 `}
 
 
