@@ -102,7 +102,8 @@ let cards = {
 }
 
 const repeats = (suit, value) => {
-    arr.find(e => e.suit === suit && e.value === value);
+    return arr.find(e => e.suit === suit && e.value === value) === undefined 
+            ? false : true;
 }
 
 let arr = []
