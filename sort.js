@@ -108,12 +108,14 @@ const repeats = (suit, value) => {
 
 let arr = []
 
-for (let i=0; i<20; i++) {
-    do {
-        let suit = cards.suits[ran(4)];
-        let value = cards.value[ran(13)];
+for (let i=0; i<27; i++) {
+    let suit = cards.suits[ran(4)];
+    let value = cards.value[ran(13)];
+
+    while (repeats(suit, value)) {
+        suit = cards.suits[ran(4)];
+        value = cards.value[ran(13)];
     }
-    while (repeats(suit, value));
 
     arr.push({
         suit: suit,
