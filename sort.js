@@ -11,7 +11,12 @@ function BubbleSort(arr) {
             let change = false;
             // If the current number is larger than the following
             // swap them
-            if (arr[j] > arr[j+1]) {  
+            if(
+                array[x].suit > array[x+1].suit ||
+                array[x].suit === array[x+1].suit &&
+                array[x].value > array[x+1].value
+            )
+            if (arr[j].suit > arr[j+1].suit) {  
                 swap(arr, j, j+1);
                 change = true;
             }
@@ -63,7 +68,7 @@ function ran(length) {
 }
 
 const cardHTML = (value, suit) => {
-    let color = suit === 1 || suit === 3 ? "text-danger" : "";
+    let color = suit === 2 || suit === 4 ? "text-danger" : "";
 
     return `
     <span class="border p-2 ${color}">${setValue(value)} ${setSuit(suit)}</span>
