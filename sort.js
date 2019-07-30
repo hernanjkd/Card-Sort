@@ -103,11 +103,17 @@ let cards = {
 
 let arr = []
 
-for (let i=0; i<20; i++)
+for (let i=0; i<20; i++) {
+    let suit = cards.suits[ran(4)];
+    let value = cards.value[ran(13)];
+    while (doesNotRepeat(suit, value)) {
+
+    }
     arr.push({
-        suit: cards.suits[ran(4)],
-        value: cards.value[ran(13)]
+        suit: suit,
+        value: value
     })
+}
 
 bubbleSort(arr)
 
