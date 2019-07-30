@@ -101,7 +101,9 @@ let cards = {
     value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
 }
 
-const repeats = (suit, value)
+const repeats = (suit, value) => {
+    arr.find(e => e.suit === suit && e.value === value);
+}
 
 let arr = []
 
