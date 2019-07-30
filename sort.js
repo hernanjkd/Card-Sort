@@ -1,5 +1,5 @@
 
-
+let log = [];
 
 function BubbleSort(arr) {
 
@@ -11,13 +11,11 @@ function BubbleSort(arr) {
             let change = false;
             // If the current number is larger than the following
             // swap them
-            if(
-                array[x].suit > array[x+1].suit ||
-                array[x].suit === array[x+1].suit &&
-                array[x].value > array[x+1].value
-            )
-            if (arr[j].suit > arr[j+1].suit) {  
+            if (arr[j].suit > arr[j+1].suit ||
+                arr[j].suit === arr[j+1].suit &&
+                arr[j].value > arr[x+1].value) {  
                 swap(arr, j, j+1);
+                log.push()
                 change = true;
             }
             // Set the wall.. if the last 2 items are already in place,
@@ -76,7 +74,6 @@ const cardHTML = (value, suit) => {
 
 
 
-let log = [];
 
 function bubbleSort(array) {
     for(wall=array.length-1; wall>0; wall--) {
