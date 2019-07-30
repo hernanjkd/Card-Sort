@@ -101,14 +101,17 @@ let cards = {
     value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
 }
 
+const repeats = (suit, value)
+
 let arr = []
 
 for (let i=0; i<20; i++) {
-    let suit = cards.suits[ran(4)];
-    let value = cards.value[ran(13)];
-    while (doesNotRepeat(suit, value)) {
-
+    do {
+        let suit = cards.suits[ran(4)];
+        let value = cards.value[ran(13)];
     }
+    while (repeats(suit, value));
+
     arr.push({
         suit: suit,
         value: value
