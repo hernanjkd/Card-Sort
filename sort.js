@@ -15,7 +15,10 @@ function BubbleSort(arr) {
                 arr[j].suit === arr[j+1].suit &&
                 arr[j].value > arr[x+1].value) {  
                 swap(arr, j, j+1);
-                log.push()
+                
+                let copyArr = arr.slice();
+                log.push(copyArr)
+                
                 change = true;
             }
             // Set the wall.. if the last 2 items are already in place,
