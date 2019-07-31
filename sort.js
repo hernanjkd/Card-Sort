@@ -73,7 +73,7 @@ const cardHTML = (value, suit) => {
 
     return `
         <div class="poker d-inline-block border bg-light ${color}">
-            <div class="d-flex justify-content-between">${setValue(value)} ${setSuit(suit)}</div>
+            <div class="">${setValue(value)} ${setSuit(suit)}</div>
             <div class="rotate">${setValue(value)} ${setSuit(suit)}</div>
         </div>
 `}
