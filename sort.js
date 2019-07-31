@@ -129,3 +129,5 @@ document.querySelector(".display").innerHTML = arr.map(e => {
     return cardHTML(e.value, e.suit);
 }).join("");
 
+
+console.log( [].filter.call(document.querySelectorAll('.y'), e => e.innerHTML === '3' ) );
