@@ -13,7 +13,7 @@ function BubbleSort(arr) {
             // swap them
             if (arr[j].suit > arr[j+1].suit ||
                 arr[j].suit === arr[j+1].suit &&
-                arr[j].value > arr[x+1].value) {  
+                arr[j].value > arr[x+1].value) {
                 swap(arr, j, j+1);
                 
                 let copyArr = arr.slice();
@@ -128,3 +128,5 @@ bubbleSort(arr)
 document.querySelector(".display").innerHTML = arr.map(e => {
     return cardHTML(e.value, e.suit);
 }).join("");
+
+console.log(SelectionSort([7,4,5,3,6,2,3,1]));
