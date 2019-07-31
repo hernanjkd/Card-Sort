@@ -13,7 +13,7 @@ function BubbleSort(arr) {
             // swap them
             if (arr[j].suit > arr[j+1].suit ||
                 arr[j].suit === arr[j+1].suit &&
-                arr[j].value > arr[x+1].value) {
+                arr[j].value > arr[j+1].value) {
                 swap(arr, j, j+1);
                 
                 let copyArr = arr.slice();
@@ -76,26 +76,6 @@ const cardHTML = (value, suit) => {
 `}
 
 
-
-
-function bubbleSort(array) {
-    for(wall=array.length-1; wall>0; wall--) {
-        for(x=0;x<wall;x++) {
-                if(
-                    array[x].suit > array[x+1].suit ||
-                    array[x].suit === array[x+1].suit &&
-                    array[x].value > array[x+1].value
-                ) {
-                    let aux = array[x];
-                    array[x]=array[x+1];
-                    array[x+1] = aux;
-                    let copyArr = array.slice();
-                    log.push(copyArr)
-                }
-        }
-    }
-}
-
 let cards = {
     suits: [1,2,3,4],
     value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
@@ -108,7 +88,7 @@ const repeats = (suit, value) => {
 
 let arr = []
 
-for (let i=0; i<27; i++) {
+for (let i=0; i<7; i++) {
     let suit = cards.suits[ran(4)];
     let value = cards.value[ran(13)];
 
@@ -123,10 +103,13 @@ for (let i=0; i<27; i++) {
     })
 }
 
-bubbleSort(arr)
+BubbleSort(arr)
 
-document.querySelector(".display").innerHTML = arr.map(e => {
-    return cardHTML(e.value, e.suit);
-}).join("");
+document.querySelector(".display").innerHTML = arr.map(e => 
+    cardHTML(e.value, e.suit)).join("");
 
-console.log(SelectionSort([7,4,5,3,6,2,3,1]));
+document.querySelector(".log").innerHTML = log.map(row => 
+    "<div style='margin-bottom: 30px'>" 
+    + row.map(e => cardHTML(e.value, e.suit)).join("") 
+    + "</div>"
+    ).join("");
