@@ -72,8 +72,8 @@ const cardHTML = (value, suit) => {
     let color = suit === 2 || suit === 4 ? "text-danger" : "";
 
     return `
-        <div class="card d-inline-block border p-2 bg-light ${color}">
-            <div>${setValue(value)} ${setSuit(suit)}</div>
+        <div class="poker d-inline-block border bg-light ${color}">
+            <div class="d-flex justify-content-between">${setValue(value)} ${setSuit(suit)}</div>
             <div class="rotate">${setValue(value)} ${setSuit(suit)}</div>
         </div>
 `}
