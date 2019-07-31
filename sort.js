@@ -72,7 +72,7 @@ const cardHTML = (value, suit) => {
     let color = suit === 2 || suit === 4 ? "text-danger" : "";
 
     return `
-    <span class="border p-2 ${color}">${setValue(value)} ${setSuit(suit)}</span>
+    <span class="border p-2 bg-light ${color}">${setValue(value)} ${setSuit(suit)}</span>
 `}
 
 
@@ -109,7 +109,7 @@ document.querySelector(".display").innerHTML = arr.map(e =>
     cardHTML(e.value, e.suit)).join("");
 
 document.querySelector(".log").innerHTML = log.map(row => 
-    "<div style='margin-bottom: 30px'>" 
+    "<div class='pb-3'>" 
     + row.map(e => cardHTML(e.value, e.suit)).join("") 
     + "</div>"
     ).join("");
