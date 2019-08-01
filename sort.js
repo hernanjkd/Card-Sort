@@ -1,6 +1,7 @@
 
 
-function BubbleSort(arr) {
+function BubbleSort(array) {
+    let arr = array.slice();
 
     let len = arr.length;
 
@@ -16,7 +17,7 @@ function BubbleSort(arr) {
                 swap(arr, j, j+1);
                 
                 let copyArr = arr.slice();
-                log.push(copyArr)
+                log.push(copyArr);
                 
                 change = true;
             }
@@ -31,7 +32,8 @@ function BubbleSort(arr) {
 
 
 
-function SelectionSort(arr) {
+function SelectionSort(array) {
+    let arr = array.slice();
     let len = arr.length;
     let min;
 
@@ -42,9 +44,13 @@ function SelectionSort(arr) {
         for (j = i + 1; j < len; j++)
             if (arr[j].suit < arr[min].suit ||
                 arr[j].suit === arr[min].suit &&
-                arr[j].value < arr[min].value)
+                arr[j].value < arr[min].value) {
                 
                 min = j;
+
+                let copyArr = arr.slice();
+                log.push(copyArr);
+            }
 
         if (i != min)
             swap(arr, i, min);
@@ -129,6 +135,7 @@ function Deal(q) {
 }
 
 const Sort = (func) => {
+
     log = [];
 
     func(arr)
@@ -143,8 +150,7 @@ let arr = []
 
 let input = document.querySelector("input");
 
-input.addEventListener("keyup", e => {
-        let v = e.target.value
+input.addEventListener("keyup", ({target: {value : v}}) => {
         let q = v === "" ? "" :
                     isNaN(v) ? 5 :
                         v > 15 ? 15 :
