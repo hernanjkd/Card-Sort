@@ -68,6 +68,11 @@ function ran(length) {
     return Math.floor(Math.random() * length);
 }
 
+const repeats = (suit, value) => {
+    return arr.find(e => e.suit === suit && e.value === value) === undefined 
+            ? false : true;
+}
+
 const cardHTML = (value, suit) => {
     let color = suit === 2 || suit === 4 ? "text-danger" : "";
 
@@ -84,42 +89,47 @@ const cardHTML = (value, suit) => {
         </div>
 `}
 
+function Deal(q) {
+
+    for (let i=0; i<q; i++) {
+        let suit = cards.suits[ran(4)];
+        let value = cards.value[ran(13)];
+
+        while (repeats(suit, value)) {
+            suit = cards.suits[ran(4)];
+            value = cards.value[ran(13)];
+        }
+
+        arr.push({
+            suit: suit,
+            value: value
+        })
+    }
+
+}
+
+const Sort = (func) => {
+
+    func(arr)
+
+    document.querySelector(".display").innerHTML = arr.map(e => 
+    cardHTML(e.value, e.suit)).join("");
+
+    document.querySelector(".log").innerHTML = log.map(row => 
+    "<div class='pb-3'>" 
+    + row.map(e => cardHTML(e.value, e.suit)).join("") 
+    + "</div>"
+    ).join("");
+
+}
+
 
 let cards = {
     suits: [1,2,3,4],
     value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
 }
 
-const repeats = (suit, value) => {
-    return arr.find(e => e.suit === suit && e.value === value) === undefined 
-            ? false : true;
-}
-
 let arr = []
 
-for (let i=0; i<7; i++) {
-    let suit = cards.suits[ran(4)];
-    let value = cards.value[ran(13)];
-
-    while (repeats(suit, value)) {
-        suit = cards.suits[ran(4)];
-        value = cards.value[ran(13)];
-    }
-
-    arr.push({
-        suit: suit,
-        value: value
-    })
-}
-
-BubbleSort(arr)
-
-document.querySelector(".display").innerHTML = arr.map(e => 
-    cardHTML(e.value, e.suit)).join("");
-
-document.querySelector(".log").innerHTML = log.map(row => 
-    "<div class='pb-3'>" 
-    + row.map(e => cardHTML(e.value, e.suit)).join("") 
-    + "</div>"
-    ).join("");
-
+document.querySelector(".quant")
+    .addEventListener("onKeyPress", e => {});
