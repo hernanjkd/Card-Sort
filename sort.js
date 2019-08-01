@@ -131,5 +131,16 @@ let cards = {
 
 let arr = []
 
-document.querySelector(".quant")
-    .addEventListener("onKeyPress", e => {});
+let input = document.querySelector("input");
+
+input.addEventListener("keyup", e => {
+    
+        if (e.key === 'Enter') {
+            let v = e.target.value
+            let q = isNaN(v) ? 5 :
+                        v > 27 ? 27 :
+                            v < 1 ? 1 : v;
+            input.value = q;
+            Deal(q);
+        }
+    });
