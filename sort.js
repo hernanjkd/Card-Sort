@@ -78,8 +78,8 @@ const cardHTML = (value, suit) => {
                 <div class="">${setSuit(suit)}</div>
             </div>
             <div class="rotate align-self-end h-100">
-                <div class="float-left">${setValue(value)}</div> 
-                <div class="float-right">${setSuit(suit)}</div>
+                <div class="">${setValue(value)}</div> 
+                <div class="">${setSuit(suit)}</div>
             </div>
         </div>
 `}
