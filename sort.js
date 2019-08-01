@@ -1,5 +1,4 @@
 
-let log = [];
 
 function BubbleSort(arr) {
 
@@ -29,7 +28,6 @@ function BubbleSort(arr) {
     }
     return arr;
 }
-
 
 
 
@@ -138,8 +136,9 @@ const Sort = (func) => {
     renderLog();
 }
 
+/****************************************************************** */
 
-
+let log = [];
 let arr = []
 
 let input = document.querySelector("input");
