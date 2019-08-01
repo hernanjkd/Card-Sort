@@ -42,7 +42,10 @@ function SelectionSort(arr) {
 
         // Check the rest of the array
         for (j = i + 1; j < len; j++)
-            if (arr[j] < arr[min])
+            if (arr[j].suit < arr[min].suit ||
+                arr[j].suit === arr[min].suit &&
+                arr[j].value < arr[min].value)
+                
                 min = j;
 
         if (i != min)
@@ -59,6 +62,11 @@ function swap(arr, i, j) {
     arr[j] = temp;
 }
 
+
+let cards = {
+    suits: [1,2,3,4],
+    value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
+}
 
 const setSuit = num => num === 1 ? "♠" : num === 2 ? "♥" : num === 3 ? "♣" : "♦";
 const setValue = num => num === 1 ? "A" : num === 11 ? "J" 
@@ -89,7 +97,16 @@ const cardHTML = (value, suit) => {
         </div>
 `}
 
+const renderLog = () => {
+    document.querySelector(".log").innerHTML = log.map(row => 
+        "<div class='pb-3'>" 
+        + row.map(e => cardHTML(e.value, e.suit)).join("") 
+        + "</div>"
+        ).join("");
+};
+
 function Deal(q) {
+    arr = [];
 
     for (let i=0; i<q; i++) {
         let suit = cards.suits[ran(4)];
@@ -106,41 +123,33 @@ function Deal(q) {
         })
     }
 
+    document.querySelector(".display").innerHTML = arr.map(e => 
+        cardHTML(e.value, e.suit)).join("");
+
+    log = [];
+    renderLog();
 }
 
 const Sort = (func) => {
+    log = [];
 
     func(arr)
 
-    document.querySelector(".display").innerHTML = arr.map(e => 
-    cardHTML(e.value, e.suit)).join("");
-
-    document.querySelector(".log").innerHTML = log.map(row => 
-    "<div class='pb-3'>" 
-    + row.map(e => cardHTML(e.value, e.suit)).join("") 
-    + "</div>"
-    ).join("");
-
+    renderLog();
 }
 
 
-let cards = {
-    suits: [1,2,3,4],
-    value:[1,2,3,4,5,6,7,8,9,10,11,12,13]
-}
 
 let arr = []
 
 let input = document.querySelector("input");
 
 input.addEventListener("keyup", e => {
-    
-        if (e.key === 'Enter') {
-            let v = e.target.value
-            let q = isNaN(v) ? 5 :
-                        v > 27 ? 27 :
+        let v = e.target.value
+        let q = v === "" ? "" :
+                    isNaN(v) ? 5 :
+                        v > 15 ? 15 :
                             v < 1 ? 1 : v;
-            input.value = q;
-            Deal(q);
-        }
+        input.value = q;
+        Deal(q);
     });
