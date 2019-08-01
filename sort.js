@@ -73,8 +73,14 @@ const cardHTML = (value, suit) => {
 
     return `
         <div class="poker d-inline-block border bg-light ${color}">
-            <div class="">${setValue(value)} ${setSuit(suit)}</div>
-            <div class="rotate">${setValue(value)} ${setSuit(suit)}</div>
+            <div class="">
+                <div class="">${setValue(value)}</div> 
+                <div class="">${setSuit(suit)}</div>
+            </div>
+            <div class="rotate align-self-end h-100">
+                <div class="float-left">${setValue(value)}</div> 
+                <div class="float-right">${setSuit(suit)}</div>
+            </div>
         </div>
 `}
 
@@ -116,3 +122,4 @@ document.querySelector(".log").innerHTML = log.map(row =>
     + row.map(e => cardHTML(e.value, e.suit)).join("") 
     + "</div>"
     ).join("");
+
