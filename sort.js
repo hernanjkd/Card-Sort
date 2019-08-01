@@ -102,10 +102,10 @@ const cardHTML = (value, suit) => {
 `}
 
 const renderLog = () => {
-    document.querySelector(".log").innerHTML = log.map(row => 
-        "<div class='pb-3'>" 
-        + row.map(e => cardHTML(e.value, e.suit)).join("") 
-        + "</div>"
+    document.querySelector(".log").innerHTML = log.map((row, i) => 
+        `<div class="pb-3"><span class="pr-2 text-secondary">${i+1}</span> 
+        ${row.map(e => cardHTML(e.value, e.suit)).join("")}
+        </div>`
         ).join("");
 };
 
