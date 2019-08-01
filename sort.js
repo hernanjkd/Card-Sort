@@ -72,14 +72,14 @@ const cardHTML = (value, suit) => {
     let color = suit === 2 || suit === 4 ? "text-danger" : "";
 
     return `
-        <div class="poker d-inline-block border bg-light ${color}">
-            <div class="">
-                <div class="">${setValue(value)}</div> 
-                <div class="">${setSuit(suit)}</div>
+        <div class="poker d-inline-block border bg-light p-1 rounded-sm ${color}">
+            <div class="h-50 d-flex justify-content-between">
+                <span>${setValue(value)}</span> 
+                <span>${setSuit(suit)}</span>
             </div>
-            <div class="rotate align-self-end h-100">
-                <div class="">${setValue(value)}</div> 
-                <div class="">${setSuit(suit)}</div>
+            <div class="rotate align-self-end h-50 d-flex justify-content-between">
+                <span>${setValue(value)}</span> 
+                <span>${setSuit(suit)}</span>
             </div>
         </div>
 `}
